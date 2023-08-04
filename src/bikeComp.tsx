@@ -15,7 +15,7 @@ import Modal from "@material-ui/core/Modal";
 
 
 const allquery = gql`
-query GetCategoryBikes($category:String,$category1:String, $subcategory:String, $frame:String, $suspension:String){
+query GetCategoryBikes($category:String,$category1:String, $subcategory:String!, $frame:String, $suspension:String){
   Brands:Brands(first:5)
   {
     id

@@ -1,8 +1,8 @@
-import React, { useState, Dispatch } from 'react';
+import React, {useState, Dispatch} from 'react';
+import logo from './logo.svg';
 import './App.css';
-
 import { BrowserRouter as Router, Routes, Route, useNavigate }
-    from "react-router-dom";
+from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -14,26 +14,22 @@ import UserAsk from './userAsk';
 import { UserAskDataType } from './type';
 import BikeComp from './bikeComp';
 
-  const httpLink = createHttpLink({
-    uri: "/graphql",
-    headers: {
-      'Content-Type': 'application/json'
-      },
-    useGETForQueries: true
-  });
+    const httpLink = createHttpLink({
+      uri: "/graphql",
+      headers: {
+        'Content-Type': 'application/json'
+        },
+      useGETForQueries: true
+    });
 
+    const client = new ApolloClient({
+      link: httpLink,
+      cache: new InMemoryCache({ addTypename: false })
+    });
   
 
-
-  const client = new ApolloClient({
-    link: httpLink,
-    cache: new InMemoryCache({ addTypename: false })
-  });
-
-  
 function App() {
-
-    
+  
   const [ userAskData, update ] = useState<UserAskDataType>();
   const updateVars=(newData)=>{
 
@@ -41,7 +37,7 @@ function App() {
   }
 
   return (
-    <>      
+  <>      
       <AppHeader />
       <ApolloProvider client={client}>  
         <Router>         
@@ -54,7 +50,7 @@ function App() {
         </Router>
         </ApolloProvider>
     </>
-  );  
+  );
 }
 
 export default App;

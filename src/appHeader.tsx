@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Text, StyleSheet, View, ImageBackground } from 'react-native';
+import { Text, StyleSheet, ImageBackground } from 'react-native';
 import AppBar from "@mui/material/AppBar";
 
 const styles = StyleSheet.create({

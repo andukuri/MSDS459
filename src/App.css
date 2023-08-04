@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-html, body, #root, .App {
-  height: 100%;
-}
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -17,16 +12,6 @@ html, body, #root, .App {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.outer {
-  width: 1000px;
-  margin: 0 auto;
-}
-
-.inner {
-  margin-left: 50px;
-}
-
 
 .App-header {
   background-color: #282c34;

@@ -62,7 +62,6 @@ const UserAsk=({updateVars, userAskData:UserAskDataType})=>{
   
   const onSubmit=(data) => {    
      // var userselect=JSON.stringify(data, null, 2)
-      
       const newData={
         frame:data.frame,
         suspension:data.suspension,
@@ -73,7 +72,6 @@ const UserAsk=({updateVars, userAskData:UserAskDataType})=>{
       updateVars({
         userAskData:newData
       });
-
       navigate('/bikes');
   };
 
@@ -84,22 +82,28 @@ const UserAsk=({updateVars, userAskData:UserAskDataType})=>{
                   {questionArray.map(
                     ({ question, options, questionId, property }) => (
                       <div>
-                        <FormLabel component="legend">{question}</FormLabel>
+                        <FormLabel key={question} component="legend">{question}</FormLabel>
                         <Controller 
                         rules={{ required: true }}
                         control={control}
                         name={property}
-                          as={
+                        key={questionId}
+                        render={({
+                          field: { onChange, onBlur, value, name, ref },
+                          fieldState: { invalid, isTouched, isDirty, error },
+                          formState,
+                          }) => (
                             <RadioGroup>
                               {options.map(option => (
                                   <FormControlLabel
                                       value={option.split(':')[1]}
                                       control={<Radio />}
                                       label={option.split(':')[0]}
+                                      onChange={onChange}
                                 />
                                 ))}
                             </RadioGroup>
-                          }
+                          )}
                         />
                         <br/>
                         </div>                        
